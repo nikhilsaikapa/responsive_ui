@@ -12,7 +12,9 @@ class OrientationLayout extends StatelessWidget {
    return LayoutBuilder(builder: (context, constraints){
      var orientation = MediaQuery.of(context).orientation;
      if (orientation == Orientation.landscape) {
-       return landscape(context) ?? portrait(context);
+       if(landscape != null) {
+         return landscape(context);
+       }
      }
      return portrait(context);
    });
